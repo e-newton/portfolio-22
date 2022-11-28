@@ -17,6 +17,12 @@ html, body {
     letter-spacing: 0.05em;
 }
 
+// @media only screen and (max-width: 600px) {
+//     body {
+//       background-color: lightblue;
+//     }
+//   }
+
 nav {
     margin-right: 30px;
     ul {
@@ -27,6 +33,12 @@ nav {
 
         a:hover {
             text-decoration: underline;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        ul {
+            margin-top: 30px;
+            justify-content: center;
         }
     }
 }
