@@ -12,4 +12,25 @@ html, body {
     height: 100%;
     background-color: $background;
     font-family: SourceSansPro, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+}
+
+nav {
+    margin-right: 30px;
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        gap: 30px;
+
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.selected, .primary {
+    color: $primary;
 }

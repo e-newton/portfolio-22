@@ -8,6 +8,26 @@ html, body {
   height: 100%;
   background-color: #F1F1F1;
   font-family: SourceSansPro, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+nav {
+  margin-right: 30px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+nav ul a:hover {
+  text-decoration: underline;
+}
+
+.selected, .primary {
+  color: #09A2FA;
 }
 
 /*# sourceMappingURL=styles.css.map */
