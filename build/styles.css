@@ -21,6 +21,7 @@ nav ul {
   display: flex;
   justify-content: flex-end;
   gap: 30px;
+  margin-right: 30px;
 }
 nav ul a:hover {
   text-decoration: underline;
@@ -47,7 +48,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
   margin-top: 50px;
   gap: 30px;
 }
