@@ -1,0 +1,15 @@
+$primary: #09A2FA;
+$background: #F1F1F1;
+
+@font-face {
+    font-family: SourceSansPro;
+    src: url('./fonts/SourceSansPro-Regular.ttf');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: $background;
+    font-family: SourceSansPro, sans-serif;
+}
