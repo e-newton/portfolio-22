@@ -43,6 +43,45 @@ nav {
     }
 }
 
+h1 {
+    font-size: 64px;
+    line-height: 80px;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+}
+
+p {
+    letter-spacing: 0.08em;
+}
+
+#intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+#bio {
+    max-width: 500px;
+}
+
+#profile-picture {
+    width: 300px;
+    height: 300px;
+    border: 8px solid $background;
+    border-radius: 30px;
+    background: url('../profile-picture.png');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
 .selected, .primary {
     color: $primary;
+}
+
+.outset {
+    filter: drop-shadow(10px 10px 30px rgba(174, 174, 192, 0.4)) drop-shadow(-10px -10px 30px #FFFFFF);
 }
