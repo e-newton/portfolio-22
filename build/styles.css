@@ -48,14 +48,14 @@ h1 {
 
 h3 {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 40px;
   letter-spacing: 0.08em;
 }
 
 h4 {
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 30px;
   letter-spacing: 0.05em;
 }
@@ -76,23 +76,34 @@ p {
   max-width: 500px;
 }
 
-#skills {
+.section {
   position: relative;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   width: calc(100% - 60px);
   margin-top: 100px;
-  padding: 30px;
+  padding: 50px 30px 50px;
   gap: 30px;
 }
-#skills .title {
+.section .title {
   position: absolute;
-  left: 50px;
   top: -2.25em;
+}
+
+.section:nth-of-type(2n) .title {
+  left: 50px;
+}
+
+.section:nth-of-type(2n + 1) .title {
+  right: 50px;
+}
+
+#skills {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 #skills .skill {
   display: flex;
+  align-items: center;
 }
 #skills .skill .skill-diagram {
   position: relative;
@@ -123,6 +134,40 @@ p {
 }
 #skills .skill .skill-name {
   margin-left: 16px;
+}
+
+#experience {
+  display: flex;
+}
+#experience input[type=radio][value=fortinet]:checked #fortinet-desc {
+  visibility: visible;
+}
+#experience #jobs ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#experience #jobs ul input[type=radio] {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  background-color: red;
+}
+#experience #jobs ul input[type=radio]:checked + label {
+  color: #09A2FA;
+  text-decoration: underline;
+  text-decoration-color: #09A2FA;
+}
+#experience #jobs ul li:hover {
+  text-decoration: underline;
+}
+#experience .job-description {
+  flex-grow: 1;
+  display: none;
+}
+#experience .job-description.visible {
+  display: block;
 }
 
 @media only screen and (max-width: 600px) {
