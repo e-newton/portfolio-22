@@ -15,6 +15,7 @@ html, body {
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.05em;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -38,6 +39,10 @@ nav {
         gap: 30px;
         margin: 0;
         padding: 0;
+        a {
+            color: black;
+            text-decoration: none;
+        }
         a:hover {
             text-decoration: underline;
         }
@@ -70,7 +75,7 @@ h4 {
     letter-spacing: 0.05em;
 }
 
-p {
+p, span {
     letter-spacing: 0.08em;
 }
 
@@ -112,50 +117,85 @@ p {
 
 #skills {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    .skill {
-        display: flex;
-        align-items: center;
-        .skill-diagram {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+    flex-direction: column;
+    #skill-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        @media only screen and (max-width: 1440px) {
+            grid-template-columns: 1fr 1fr 1fr;
+            justify-items: center;
+        }
+        @media only screen and (max-width: 650px) {
+            grid-template-columns: 1fr 1fr;
+            justify-items: flex-start;
+        }
+        @media only screen and (max-width: 550px) {
+            grid-template-columns: 1fr;
+            justify-items: flex-start;
+        }
+        .skill {
             display: flex;
-            justify-content: center;
             align-items: center;
-
-            svg {
-                position: absolute;
-                width: 75px;
-                height: 75px;
-                transform: scale(1.33333);
+            padding: 16px;
+            border-radius: 30px;
+            &:not(.inset):hover {
+                @media only screen and (min-width: 450px) {
+                    background-color: darken($color: $background, $amount: 4);
+                }
+            }
+            .skill-diagram {
+                position: relative;
+                width: 80px;
+                height: 80px;
                 border-radius: 50%;
-                path {
-                    -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
-                    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    position: absolute;
+                    width: 75%;
+                    height: 75%;
+                    transform: scale(1.33333);
+                    border-radius: 50%;
+                    path {
+                        transition: stroke 0.2s ease-in-out;
+                        -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+                        filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+                    }
+                }
+
+                .centre {
+                    background-color: $background;
+                    border-radius: 50%;
+                    width: 50%;
+                    height: 50%;
+                    z-index: 2;
                 }
             }
 
-            .centre {
-                background-color: $background;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                z-index: 2;
+            .skill-name {
+                margin-left: 16px;
             }
+
         }
 
-        .skill-name {
-            margin-left: 16px;
+    }
+    .skill-desc {
+        position: relative;
+        top: -100%;
+        width: 100%;
+        text-align: center;
+        display: none;
+        &.visible {
+            display: block;
         }
-
     }
 }
 
 #experience {
     display: flex;
+    margin-bottom: 30px;
     input[type="radio"][value="fortinet"]:checked {
         #fortinet-desc {
             visibility: visible;
@@ -167,12 +207,13 @@ p {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            min-width: max-content;
+            height: 250px;
 
             input[type="radio"] {
                 position: fixed;
                 opacity: 0;
                 pointer-events: none;
-                background-color: red;
             }
             input[type="radio"]:checked + label {
                 color: $primary;
@@ -187,9 +228,51 @@ p {
     }
     .job-description {
         flex-grow: 1;
+        flex-direction: column;
         display: none;
+        padding: 0px 50px 0px;
+        li {
+            margin-bottom: 10px;
+        }
         &.visible {
             display: block;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+    }
+    @media only screen and (max-width: 1000px) {
+        & {
+            flex-direction: column;
+            #jobs ul {
+                flex-direction: row;
+                height: auto;
+            }
+        }
+    }
+    @media only screen and (max-width: 850px) {
+        & {
+            #jobs ul {
+                display: grid;
+                grid-template-columns: 1fr;
+                height: auto;
+                gap: 20px;
+            }
+            .job-description {
+                padding: 0 16px 0;
+            }
+        }
+    }
+    @media only screen and (max-width: 450px) {
+        & {
+            .job-description .header {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     }
 }
@@ -208,6 +291,27 @@ p {
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;  
+}
+
+#contact {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+
+        li {
+            a {
+                color: black;
+                text-decoration: none;
+            }
+            list-style: none;
+        }
+    }
 }
 
 .selected, .primary {
