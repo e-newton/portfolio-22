@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: SourceSansPro;
   src: url("./fonts/SourceSansPro-Regular.ttf");
@@ -20,7 +21,7 @@ body {
 }
 
 nav {
-  margin-top: 50px;
+  margin: 50px;
 }
 nav ul {
   list-style: none;
@@ -90,99 +91,21 @@ p, span {
 }
 .section .title {
   position: absolute;
-  top: -2.25em;
-}
-
-.section:nth-of-type(2n) .title {
-  left: 50px;
+  top: -3em;
 }
 
 .section:nth-of-type(2n + 1) .title {
-  right: 50px;
+  left: 50px;
 }
 
-#skills {
-  display: flex;
-  flex-direction: column;
-}
-#skills #skill-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-@media only screen and (max-width: 1440px) {
-  #skills #skill-container {
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-  }
-}
-@media only screen and (max-width: 650px) {
-  #skills #skill-container {
-    grid-template-columns: 1fr 1fr;
-    justify-items: flex-start;
-  }
-}
-@media only screen and (max-width: 550px) {
-  #skills #skill-container {
-    grid-template-columns: 1fr;
-    justify-items: flex-start;
-  }
-}
-#skills #skill-container .skill {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  border-radius: 30px;
-}
-@media only screen and (min-width: 450px) {
-  #skills #skill-container .skill:not(.inset):hover {
-    background-color: #e7e7e7;
-  }
-}
-#skills #skill-container .skill .skill-diagram {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#skills #skill-container .skill .skill-diagram svg {
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  transform: scale(1.33333);
-  border-radius: 50%;
-}
-#skills #skill-container .skill .skill-diagram svg path {
-  transition: stroke 0.2s ease-in-out;
-  -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
-}
-#skills #skill-container .skill .skill-diagram .centre {
-  background-color: #F1F1F1;
-  border-radius: 50%;
-  width: 50%;
-  height: 50%;
-  z-index: 2;
-}
-#skills #skill-container .skill .skill-name {
-  margin-left: 16px;
-}
-#skills .skill-desc {
-  position: relative;
-  top: -100%;
-  width: 100%;
-  text-align: center;
-  display: none;
-}
-#skills .skill-desc.visible {
-  display: block;
+.section:nth-of-type(2n) .title {
+  right: 50px;
 }
 
 #experience {
   display: flex;
   margin-bottom: 30px;
+  flex-grow: 1;
 }
 #experience input[type=radio][value=fortinet]:checked #fortinet-desc {
   visibility: visible;
@@ -225,7 +148,7 @@ p, span {
   justify-content: space-between;
   text-align: center;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   #experience {
     flex-direction: column;
   }
@@ -234,7 +157,7 @@ p, span {
     height: auto;
   }
 }
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 1050px) {
   #experience #jobs ul {
     display: grid;
     grid-template-columns: 1fr;
@@ -245,18 +168,63 @@ p, span {
     padding: 0 16px 0;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 650px) {
   #experience .job-description .header {
     flex-direction: column;
     align-items: center;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  #skills {
-    justify-content: flex-start;
+#skill-experience {
+  display: flex;
+  gap: 50px;
+}
+#skill-experience #skills {
+  position: relative;
+  height: fit-content;
+  margin-top: 100px;
+  padding: 50px 30px 50px;
+  margin-bottom: 30px;
+  min-width: 200px;
+}
+#skill-experience #skills .title {
+  position: absolute;
+  top: -3em;
+}
+#skill-experience #skills ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+#skill-experience #skills ul li a {
+  color: black;
+  text-decoration: none;
+}
+#skill-experience #skills ul li a.primary {
+  color: #09A2FA;
+}
+#skill-experience #skills ul li::before {
+  content: "•"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #09A2FA; /* Change the color */
+  font-size: 24px;
+  font-weight: bold; /* If you want it to be bold */
+  margin-left: -1em;
+  position: relative;
+  top: 5px;
+}
+@media only screen and (max-width: 700px) {
+  #skill-experience {
+    flex-direction: column;
+  }
+  #skill-experience #skills ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 }
+
 #profile-picture {
   width: 300px;
   height: 300px;
@@ -285,6 +253,9 @@ p, span {
 #contact ul li a {
   color: black;
   text-decoration: none;
+}
+#contact ul li a.primary {
+  color: #09A2FA;
 }
 
 .selected, .primary {

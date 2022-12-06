@@ -44,29 +44,29 @@ function generateSkillAnimation(id, maxDegree) {
     }, 1)
 }
 
-generateSkillAnimation('#angular', 360)
-generateSkillAnimation('#typescript', 360)
-generateSkillAnimation('#java', 360)
-generateSkillAnimation('#react', 360 * 0.8)
-generateSkillAnimation('#nodejs', 360 * 0.8)
-generateSkillAnimation('#c', Math.floor(360 * 0.7))
+// generateSkillAnimation('#angular', 360)
+// generateSkillAnimation('#typescript', 360)
+// generateSkillAnimation('#java', 360)
+// generateSkillAnimation('#react', 360 * 0.8)
+// generateSkillAnimation('#nodejs', 360 * 0.8)
+// generateSkillAnimation('#c', Math.floor(360 * 0.7))
 
-const skills = document.querySelectorAll('.skill');
-if (window.visualViewport.width > 450) {
-    skills.forEach(skill => {
-        skill.addEventListener('click', () => {
-            skills.forEach(s => {
-                const desc = document.querySelector(`#${s.id}Desc`); 
-                if (desc) {
-                    desc.classList.remove('visible');
-                }
-                s.classList.remove('inset')
-            });
-            skill.classList.add('inset');
-            document.querySelector(`#${skill.id}Desc`).classList.add('visible');
-        })
-    })
-}
+// const skills = document.querySelectorAll('.skill');
+// if (window.visualViewport.width > 450) {
+//     skills.forEach(skill => {
+//         skill.addEventListener('click', () => {
+//             skills.forEach(s => {
+//                 const desc = document.querySelector(`#${s.id}Desc`); 
+//                 if (desc) {
+//                     desc.classList.remove('visible');
+//                 }
+//                 s.classList.remove('inset')
+//             });
+//             skill.classList.add('inset');
+//             document.querySelector(`#${skill.id}Desc`).classList.add('visible');
+//         })
+//     })
+// }
 
 const radioButtons = document.querySelectorAll('#jobs input[type="radio"]');
 let currentlySelectedJob;
